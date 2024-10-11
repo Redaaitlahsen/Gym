@@ -1,40 +1,14 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = ""; // Adjust if you have a password
-$dbname = "gym"; // Change to your actual database name
+session_start();
+include "contreleur.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Initialize error variable
-$error_message = "";
-
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['join2'])) {
+    $c = new Contreleur();
     $cin = $_POST['cin'];
     $phone = $_POST['phone'];
-
-    // Check if the CIN and phone number match
-    $checkLogin = $conn->prepare("SELECT * FROM members WHERE CIN = ? AND phone = ?");
-    $checkLogin->bind_param("ss", $cin, $phone);
-    $checkLogin->execute();
-    $result = $checkLogin->get_result();
-
-    if ($result->num_rows > 0) {
-        // Successful login, redirect to Profil.php
-        header("Location: Profil.php");
-        exit(); // Make sure to exit after redirecting
-    } else {
-        // Set error message for unsuccessful login
-        $error_message = "Invalid CIN or phone number. Please try again.";
-    }
-    $checkLogin->close();
+    
+    $c->check($cin, $phone);
 }
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -44,61 +18,15 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .login__form {
-            max-width: 400px;
-            margin: auto;
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    <link rel="stylesheet" href="styless.css" />
 
-        .login__form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .login__form input {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--text-light);
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .login__form button {
-            width: 100%;
-        }
-
-        .error-message {
-            color: red;
-            margin-top: -10px; /* Adjust spacing as needed */
-            margin-bottom: 1rem;
-        }
-
-        .join {
-            color: white;
-            border-radius: 10px;
-            background-color: red;
-            padding: 10px;
-        }
-
-        .join:hover {
-            background-color: white;
-            color: red;
-        }
-    </style>
 </head>
 <body>
 <nav>
     <div class="nav__bar">
         <div class="nav__header">
             <div class="nav__logo">
-                <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+                <a href="index.html"><img src="images\logos/logo.png" alt="logo" /></a>
             </div>
             <div class="nav__menu__btn" id="menu-btn">
                 <i class="ri-menu-line"></i>
@@ -111,7 +39,7 @@ $conn->close();
             <li><a href="#client">CLIENT</a></li>
             <li><a href="#blog">BLOG</a></li>
             <li><a href="#contact">CONTACT US</a></li>
-            <li><a href="signup.php" class="join">JOIN US</a></li>
+            <li><a href="signup.php" class="join">LOGIN</a></li>
         </ul>
     </div>
 </nav>
@@ -132,11 +60,12 @@ $conn->close();
                 <label for="phone">Phone:</label>
                 <input type="text" id="phone" name="phone" required>
 
-                <?php if ($error_message): ?>
-                    <div class="error-message"><?php echo $error_message; ?></div>
+                <?php if (isset($_SESSION['error_message'])): ?>
+                    <div class="error-message"><?php echo $_SESSION['error_message']; ?></div>
+                    <?php unset($_SESSION['error_message']); ?>
                 <?php endif; ?>
 
-                <button type="submit" class="btn btn__primary">Login</button>
+                <input type="submit" class="join2" name="join2" value="Login">
             </form>
         </div>
     </div>

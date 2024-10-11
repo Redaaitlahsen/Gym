@@ -1,48 +1,19 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = ""; // Adjust if you have a password
-$dbname = "gym"; // Change to your actual database name
+session_start();
+include "contreleur.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if(isset($_POST['join2'])){
+  $c = new Contreleur();
+  $cin = $_POST['cin'];
+  $firstname = $_POST['first_name'];
+  $lastname = $_POST['last_name'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $address = $_POST['address'];
+  $gender = $_POST['gender'];
+  $c->ajouter($cin, $firstname, $lastname, $email, $phone, $address, $gender);
 }
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cin = $_POST['cin'];
-    $full_name = $_POST['full_name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-
-    // Check if the email already exists
-    $checkEmail = $conn->prepare("SELECT * FROM members WHERE email = ?");
-    $checkEmail->bind_param("s", $email);
-    $checkEmail->execute();
-    $result = $checkEmail->get_result();
-
-    if ($result->num_rows > 0) {
-        echo "<script>alert('This email is already registered. Please use a different email.');</script>";
-    } else {
-        // Proceed with the insert since the email is not duplicated
-        $sql = "INSERT INTO members (CIN, full_name, email, phone, address, role, membership_status)
-                VALUES (?, ?, ?, ?, ?, 'Member', 'Inactive')";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssss", $cin, $full_name, $email, $phone, $address);
-
-        if ($stmt->execute()) {
-            echo "<script>alert('Registration successful!'); window.location.href='Profil.php';</script>";
-        } else {
-            echo "<script>alert('Error: " . $stmt->error . "');</script>";
-        }
-        $stmt->close();
-    }
-    $checkEmail->close();
-}
-$conn->close();
 ?>
 
 
@@ -53,47 +24,8 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .signup__form {
-  max-width: 400px;
-  margin: auto;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.signup__form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-.signup__form input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--text-light);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.signup__form button {
-  width: 100%;
-}
-.join{
-  color: white;
-  border-radius: 10px;
-  background-color: red;
-  padding:10px;
-}
-
-.join:hover{
-  background-color: white;
-  color: red;
-}
-    </style>
+    <link rel="stylesheet" href="styless.css" />
+    
 
 </head>
 <body>
@@ -101,7 +33,7 @@ $conn->close();
       <div class="nav__bar">
         <div class="nav__header">
           <div class="nav__logo">
-            <a href="#"><img src="assets/logo.png" alt="logo" /></a>
+            <a href="index.html"><img src="images\logos/logo.png" alt="logo" /></a>
           </div>
           <div class="nav__menu__btn" id="menu-btn">
             <i class="ri-menu-line"></i>
@@ -134,8 +66,11 @@ $conn->close();
                 <label for="cin">CIN:</label>
                 <input type="text" id="cin" name="cin" required>
 
-                <label for="full_name">Full Name:</label>
-                <input type="text" id="full_name" name="full_name" required>
+                <label for="full_name">First Name:</label>
+                <input type="text" id="full_name" name="first_name" required>
+
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
@@ -146,8 +81,16 @@ $conn->close();
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address">
 
-                <button type="submit" class="btn btn__primary">Sign Up</button>
+                <!-- Gender Field (Dropdown) -->
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="homme" name="homme">Homme</option>
+                    <option value="femme" name="femme">Femme</option>
+                </select>
+
+                <input type="submit" name="join2" class="join2" value="Sign Up">
             </form>
+
         </div>
     </div>
 </header>
