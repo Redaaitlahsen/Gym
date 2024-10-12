@@ -28,50 +28,61 @@ if (!isset($_SESSION['user'])) {
     <link rel="stylesheet" href="styless.css">
     <style>
         .profile__container {
-            max-width: 600px;
-            margin: auto;
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex; /* Use flexbox to align items */
-            align-items: center; /* Center items vertically */
-        }
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Increased opacity for better readability */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for depth */
+    display: flex;
+    align-items: center;
+}
 
-        .profile__info {
-            flex: 1; /* Allow text to fill remaining space */
-        }
+.profile__info {
+    flex: 1;
+    padding-right: 1.5rem; /* Add padding to separate from image */
+}
 
-        .profile__image {
-            flex: 0 0 150px; /* Fixed width for the image */
-            margin-left: 1.5rem; /* Space between text and image */
-        }
+.profile__info p {
+    margin: 1rem 0; /* Spacing between profile details */
+    font-size: 1.1rem; /* Slightly larger font size for readability */
+}
 
-        .profile__image img {
-            width: 100%; /* Make image responsive */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 50%; /* Round the image */
-        }
+.profile__image {
+    flex: 0 0 150px;
+    margin-left: 1.5rem;
+}
 
-        .profile__info label {
-            font-weight: 500;
-            color: var(--text-dark);
-        }
+.profile__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow to the image */
+}
 
-        .logout {
-            margin-top: 2rem;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: red;
-            color: white;
-            cursor: pointer;
-        }
+.profile__info label {
+    font-weight: 600; /* Slightly bolder labels */
+    color: var(--text-dark);
+    margin-right: 10px; /* Space between label and text */
+}
 
-        .logout:hover {
-            background-color: white;
-            color: red;
-        }
+.logout {
+    margin-top: 2rem;
+    padding: 10px 20px; /* Add more padding for a larger button */
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+.logout:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red; /* Add a border on hover for emphasis */
+}
+
     </style>
 </head>
 <body>
@@ -101,35 +112,30 @@ if (!isset($_SESSION['user'])) {
     <div class="section__container" style="padding: 4rem;">
         <div class="profile__container">
             <div class="profile__info">
-                <h1>Welcome, <?php echo htmlspecialchars($cin); ?>!</h1>
+                <h1>Welcome, <?php echo htmlspecialchars($memberInfo['first_name']); ?>!</h1>
+                <br><hr><br>
                 <p>Here are your profile details:</p>
+                <br>
                 <div>
-                    <label for="cin">CIN:</label>
-                    <p><?php echo htmlspecialchars($cin); ?></p>
+                    <p class="profile-detail"><label for="cin">CIN:</label> <?php echo htmlspecialchars($cin); ?></p>
                 </div>
                 <div>
-                    <label for="first_name">First Name:</label>
-                    <p><?php echo htmlspecialchars($memberInfo['first_name']); ?></p>
+                    <p class="profile-detail"><label for="first_name">First Name:</label> <?php echo htmlspecialchars($memberInfo['first_name']); ?></p>
                 </div>
                 <div>
-                    <label for="last_name">Last Name:</label>
-                    <p><?php echo htmlspecialchars($memberInfo['last_name']); ?></p>
+                    <p class="profile-detail"><label for="last_name">Last Name:</label> <?php echo htmlspecialchars($memberInfo['last_name']); ?></p>
                 </div>
                 <div>
-                    <label for="email">Email:</label>
-                    <p><?php echo htmlspecialchars($memberInfo['email']); ?></p>
+                    <p class="profile-detail"><label for="email">Email:</label> <?php echo htmlspecialchars($memberInfo['email']); ?></p>
                 </div>
                 <div>
-                    <label for="phone">Phone:</label>
-                    <p><?php echo htmlspecialchars($memberInfo['phone_number']); ?></p>
+                    <p class="profile-detail"><label for="phone_number">Phone Number:</label> <?php echo htmlspecialchars($memberInfo['phone_number']); ?></p>
                 </div>
                 <div>
-                    <label for="address">Address:</label>
-                    <p><?php echo htmlspecialchars($memberInfo['address']); ?></p>
+                    <p class="profile-detail"><label for="address">Address:</label> <?php echo htmlspecialchars($memberInfo['address']); ?></p>
                 </div>
                 <div>
-                    <label for="gender">Gender:</label>
-                    <p><?php echo htmlspecialchars($memberInfo['gender']); ?></p>
+                    <p class="profile-detail"><label for="gender">Gender:</label> <?php echo htmlspecialchars($memberInfo['gender']); ?></p>
                 </div>
                 <form action="" method="post">
                     <button type="submit" class="logout" name="logout">Logout</button>
@@ -141,6 +147,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
 </header>
+
 
 <footer class="footer">
     <div class="footer__container">

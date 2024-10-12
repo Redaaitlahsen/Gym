@@ -54,7 +54,7 @@ if(isset($_POST['join2'])){
 
     <header class="header">
     
-    <div class="section__container" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 8rem;">
+    <div class="section__container" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10vw;">
         <div class="header__content" style="flex: 1; padding-right: 2rem;">
             <h1>Signup</h1>
             <h2>Join Our Gym Family</h2>
