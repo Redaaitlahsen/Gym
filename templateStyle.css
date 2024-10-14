@@ -10,159 +10,6 @@
   --max-width: 1200px;
   --header-font: "Oswald", sans-serif;
 }
-.signup__form {
-  max-width: 100%;
-  margin: auto;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.signup__form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-.signup__form input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--text-light);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.signup__form button {
-  width: 100%;
-}
-
-.signup__form select {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--text-light);
-  border-radius: 4px;
-  font-size: 1rem;
-  background-color: #f9f9f9;
-  color: var(--text-dark);
-  appearance: none; /* Removes default dropdown arrow */
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="0,0 70,70 140,0" fill="black"/></svg>') no-repeat right 10px center; /* Custom arrow icon */
-  background-size: 12px;
-  padding-right: 2rem; /* Space for custom arrow */
-  cursor: pointer;
-}
-
-.signup__form select:focus {
-    border-color: #ff0000; /* Red border on focus */
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Subtle shadow on focus */
-}
-
-.signup__form select option {
-    color: var(--text-dark);
-    background-color: #fff;
-}
-
-
-.login__form {
-  max-width: 400px;
-  margin: auto;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.login__form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-  font-weight: 500;
-}
-
-.login__form input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--text-light);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.login__form button {
-  width: 100%;
-}
-
-.error-message {
-  color: red;
-  margin-top: -10px; /* Adjust spacing as needed */
-  margin-bottom: 1rem;
-}
-
-.join {
-  color: white;
-  border-radius: 10px;
-  background-color: red;
-  padding: 10px;
-}
-
-.join:hover {
-  background-color: white;
-  color: red;
-}
-.join2 {
-  color: white;
-  border-radius: 10px;
-  background-color: red;
-  padding: 10px;
-}
-
-.join2:hover {
-  background-color: white;
-  color: red;
-}
-.header {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.8)
-    ),
-  url("images/template/header.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.membership {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url("images/template/membership.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.session__card:nth-child(1) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url("images/template/session-1.jpg");
-}
-
-.session__card:nth-child(2) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url("images/template/session-2.jpg");
-}
-
-.session__card:nth-child(3) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url("images/template/session-3.jpg");
-}
-
-.session__card:nth-child(4) {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url("images/template/session-4.jpg");
-}
-
-
 
 * {
   padding: 0;
@@ -173,7 +20,7 @@
 .section__container {
   max-width: var(--max-width);
   margin: auto;
-  padding: 10vw;
+  padding: 5rem 1rem;
 }
 
 .section__header {
@@ -235,6 +82,36 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+  display: none;
+}
+
+.backToTop.show {
+  display: block;
+}
+
+.join{
+  color: white;
+  border-radius: 10px;
+  background-color: red;
+  padding:10px;
+}
+
+.join:hover{
+  background-color: white;
+  color: red !important;
+}
+
 nav {
   background-color: var(--text-dark);
   width: 100%;
@@ -262,7 +139,7 @@ nav {
 
 .nav__menu__btn {
   font-size: 1.5rem;
-  color: white;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -301,6 +178,17 @@ nav {
   color: var(--primary-color);
 }
 
+.header {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("images/template/header.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
 .header__container {
   padding-block: 10rem;
@@ -400,6 +288,26 @@ nav {
   background-repeat: no-repeat;
 }
 
+.session__card:nth-child(1) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/template/session-1.jpg");
+}
+
+.session__card:nth-child(2) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/template/session-2.jpg");
+}
+
+.session__card:nth-child(3) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/template/session-3.jpg");
+}
+
+.session__card:nth-child(4) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/template/session-4.jpg");
+}
+
 .session__card h4 {
   position: relative;
   isolation: isolate;
@@ -470,7 +378,13 @@ nav {
   color: var(--primary-color);
 }
 
-
+.membership {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/template/membership.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
 .membership__container .section__header {
   color: var(--white);
@@ -722,6 +636,7 @@ nav {
   background-color: var(--white);
   border-radius: 100%;
 }
+
 .footer__socials a:hover {
   color: var(--white);
   background-color: var(--primary-color);
@@ -733,10 +648,6 @@ nav {
   color: var(--text-light);
   text-align: center;
 }
-
-
-
-
 
 @media (width > 540px) {
   .about__grid {
@@ -868,57 +779,5 @@ nav {
 
   .membership__card {
     padding: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .section__container {
-      flex-direction: column; /* Stack elements vertically */
-      padding: 2rem; /* Adjust padding for mobile */
-  }
-
-  .header__content {
-      padding-right: 0; /* Remove right padding */
-      text-align: center; /* Center text */
-      margin-bottom: 2rem; /* Space between header and form */
-  }
-
-  .signup__form {
-      max-width: 90%; /* Full width on mobile */
-      padding: 1.5rem; /* Reduce padding */
-  }
-
-  .nav__links {
-      display: block; /* Stack nav links */
-      text-align: center; /* Center nav links */
-  }
-
-  .nav__links li {
-      display: block;
-      margin: 1rem 0; /* Add margin between links */
-  }
-}
-
-@media (max-width: 480px) {
-  
-
-  .header__content h2 {
-      font-size: 1.5rem; /* Adjust h2 size */
-  }
-
-  .signup__form {
-      padding: 1rem; /* Further reduce padding */
-  }
-
-  .signup__form input,
-  .signup__form select {
-      padding: 0.5rem; /* Smaller padding for inputs */
-      font-size: 0.9rem; /* Smaller font size for inputs */
-  }
-
-  .join,
-  .join2 {
-      font-size:small; /* Adjust button font size */
-      
   }
 }

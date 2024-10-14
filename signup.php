@@ -20,48 +20,26 @@ if(isset($_POST['join2'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+<?php include 'includes/head.php'; ?>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styless.css" />
-    
-
-</head>
+    <link rel="stylesheet" href="templateStyle.css">
+    </head>
 <body>
-<nav>
-      <div class="nav__bar">
-        <div class="nav__header">
-          <div class="nav__logo">
-            <a href="index.html"><img src="images\logos/logo.png" alt="logo" /></a>
-          </div>
-          <div class="nav__menu__btn" id="menu-btn">
-            <i class="ri-menu-line"></i>
-          </div>
-        </div>
-        <ul class="nav__links" id="nav-links">
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#trainer">TRAINER</a></li>
-          <li><a href="#client">CLIENT</a></li>
-          <li><a href="#blog">BLOG</a></li>
-          <li><a href="#contact">CONTACT US</a></li>
-          <li><a href="login.php" class="join">JOIN US</a></li>
-          
-        </ul>
-      </div>
-    </nav>
-
-    <header class="header">
+<?php include 'includes/templateNavbar.php'; ?>
+    <header class="header" id="header">
     
-    <div class="section__container" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10vw;">
-        <div class="header__content" style="flex: 1; padding-right: 2rem;">
+    <div class="section__container" >
+      <div class="row">
+        <div class="col-sm">
+        <div class="header__content" >
             <h1>Signup</h1>
             <h2>Join Our Gym Family</h2>
-            <p>We’re excited to have you <br> join our community! Please fill <br> in the details below <br> to get started.</p>
-            <li><a href="login.php" class="join">already have an account?</a></li>
+            <p>We’re excited to have you join our community! Please fill in the details below to get started.</p>
+            <a href="login.php" class="join">already have an account?</a>
         </div>
-        <div class="signup__form" style="flex: 1;">
+        </div>
+        <div class="col-sm">
+        <div class="signup__form" >
             <form action="" method="post">
                 <label for="cin">CIN:</label>
                 <input type="text" id="cin" name="cin" required>
@@ -92,21 +70,18 @@ if(isset($_POST['join2'])){
             </form>
 
         </div>
+        </div>
+      </div>
+        
+        
     </div>
 </header>
 
-    
-
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__bar">
-                <p >&copy; 2024 Your Gym. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-
-
-
+<?php include 'includes/footer.php'; ?>
+    <script src="https://unpkg.com/scrollreveal"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js">
+        
+      </script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -21,11 +21,8 @@ if (!isset($_SESSION['user'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styless.css">
+    <?php include 'includes/head.php'; ?>
+    <link rel="stylesheet" href="templateStyle.css">
     <style>
         .profile__container {
     max-width: 600px;
@@ -82,32 +79,15 @@ if (!isset($_SESSION['user'])) {
     color: red;
     border: 1px solid red; /* Add a border on hover for emphasis */
 }
-
+@media (max-width: 629px) {
+    img{
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
-<nav>
-    <div class="nav__bar">
-        <div class="nav__header">
-            <div class="nav__logo">
-                <a href="#"><img src="images/logos/logo.png" alt="logo" /></a>
-            </div>
-            <div class="nav__menu__btn" id="menu-btn">
-                <i class="ri-menu-line"></i>
-            </div>
-        </div>
-        <ul class="nav__links" id="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#trainer">TRAINER</a></li>
-            <li><a href="#client">CLIENT</a></li>
-            <li><a href="#blog">BLOG</a></li>
-            <li><a href="#contact">CONTACT US</a></li>
-            <li><a href="signup.php" class="join">JOIN US</a></li>
-        </ul>
-    </div>
-</nav>
-
+<?php include 'includes/templateNavbar.php'; ?>
 <header class="header">
     <div class="section__container" style="padding: 4rem;">
         <div class="profile__container">
@@ -147,15 +127,11 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
 </header>
-
-
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer__bar">
-            <p>&copy; 2024 Your Gym. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
-
+<?php include 'includes/footer.php'; ?>
+<script src="https://unpkg.com/scrollreveal"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js">
+        
+      </script>
+    <script src="main.js"></script>
 </body>
 </html>

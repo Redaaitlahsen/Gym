@@ -1,46 +1,11 @@
   <!DOCTYPE html>
   <html lang="en">
     <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-        rel="stylesheet"
-      />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-      <link rel="stylesheet" href="styles.css" />
-      <link rel="stylesheet" href="styless.css" />
-      <title>FitPhysique</title>
-      <style>
-
-
-
-      </style>
+    <?php include 'includes/head.php'; ?>
+    <link rel="stylesheet" href="templateStyle.css">
     </head>
     <body>
-      <nav>
-        <div class="nav__bar">
-          <div class="nav__header">
-            <div class="nav__logo">
-              <a href="index.html"><img src="images\logos/logo.png" alt="logo" /></a>
-            </div>
-            <div class="nav__menu__btn" id="menu-btn">
-              <i class="ri-menu-line"></i>
-            </div>
-          </div>
-          <ul class="nav__links" id="nav-links">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#trainer">TRAINER</a></li>
-            <li><a href="#membership">MEMBERSHIP</a></li>
-            <li><a href="#blog">BLOG</a></li>
-            <li><a href="#contact">CONTACT </a></li>
-            <li><a href="signup.php" class="join">JOIN US</a></li>
-          </ul>
-        </div>
-      </nav>
+    <?php include 'includes/templateNavbar.php'; ?>
 
       <header class="header" id="header">
         <div class="section__container header__container">
@@ -49,12 +14,12 @@
             <h2>ISS FOR EVERY SUCCESS</h2>
             <p>Start by taking inspirations, continue it to give inspirations</p>
             <div class="header__btn">
-            <li><a href="signup.php" class="join">GET STARTED</a></li>
+            <a href="signup.php" class="join">GET STARTED</a>
             </div>
           </div>
         </div>
       </header>
-      <button id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up" style="color: white;"></i></button>
+      <button id="backToTop" class="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up" style="color: white;"></i></button>
       <section class="section__container about__container" id="about">
         <div class="about__header">
           <h2 class="section__header" id="about">ABOUT US</h2>
@@ -120,7 +85,7 @@
                 READ MORE <i class="ri-arrow-right-line"></i>
             </a>
         </div>
-        <div class="morepages/gyminfo.html">
+        <div class="session__card ">
             <h4>CROSSFIT</h4>
             <p>
                 Experience the ultimate full-body workout with our intense CrossFit
@@ -362,71 +327,7 @@
         <img src="images\banners/banner-3.png" alt="banner" />
         <img src="images\banners/banner-4.png" alt="banner" />
       </section>
-
-      <footer class="footer" id="contact">
-        <div class="section__container footer__container">
-          <div class="footer__col">
-            <div class="footer__logo">
-              <a href="#"><img src="images\logos/logo.png" alt="logo" /></a>
-            </div>
-            <p>
-              Welcome to FitPhysique, where we believe that every journey to
-              fitness is unique and empowering.
-            </p>
-            <ul class="footer__links">
-              <li>
-                <a href="#">
-                  <span><i class="ri-map-pin-2-fill"></i></span>
-                  123 Main Street<br />Sunrise Valley, Evergreen Heights
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span><i class="ri-phone-fill"></i></span>
-                  +91 9876543210
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span><i class="ri-mail-fill"></i></span>
-                  info@fitphysique.com
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4>GALLERY</h4>
-            <div class="gallery__grid">
-              <img src="images\template/gallery-1.jpg" alt="gallery" />
-              <img src="images\template/gallery-2.jpg" alt="gallery" />
-              <img src="images\template/gallery-3.jpg" alt="gallery" />
-              <img src="images\template/gallery-4.jpg" alt="gallery" />
-              <img src="images\template/gallery-5.jpg" alt="gallery" />
-              <img src="images\template/gallery-6.jpg" alt="gallery" />
-              <img src="images\template/gallery-7.jpg" alt="gallery" />
-              <img src="images\template/gallery-8.jpg" alt="gallery" />
-              <img src="images\template/gallery-9.jpg" alt="gallery" />
-            </div>
-          </div>
-          <div class="footer__col">
-            <h4>NEWSLETTER</h4>
-            <p>
-              Don't miss out on the latest news and offers - sign up today and
-              join our thriving fitness community!
-            </p>
-            <form action="/">
-              <input type="text" placeholder="Enter Email" />
-              <button class="btn btn__primary">SEND</button>
-            </form>
-            <div class="footer__socials">
-              <a href="#"><i class="ri-facebook-fill"></i></a>
-              <a href="#"><i class="ri-twitter-fill"></i></a>
-              <a href="#"><i class="ri-youtube-fill"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-  
+      <?php include 'includes/footer.php'; ?>
       <script src="https://unpkg.com/scrollreveal"></script>
       <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js">
         

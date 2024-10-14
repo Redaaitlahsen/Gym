@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    --primary-color: #dc030a;
+    --primary-color-dark: rgb(135, 6, 12);
+    --text-dark: #0a0a0a;
+    --text-light: #737373;
+    --extra-light: #e5e5e5;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --header-font: "Oswald", sans-serif;
+  }
+  
+.signup__form {
+    max-width: 400px;
+    margin: auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .signup__form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .signup__form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .signup__form button {
+    width: 100%;
+  }
+
+  .signup__form select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: var(--text-dark);
+    appearance: none; /* Removes default dropdown arrow */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><polygon points="0,0 70,70 140,0" fill="black"/></svg>') no-repeat right 10px center; /* Custom arrow icon */
+    background-size: 12px;
+    padding-right: 2rem; /* Space for custom arrow */
+    cursor: pointer;
+  }
+
+  .signup__form select:focus {
+      border-color: #ff0000; /* Red border on focus */
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Subtle shadow on focus */
+  }
+
+  .signup__form select option {
+      color: var(--text-dark);
+      background-color: #fff;
+  }
+  
+  html,
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+   
+a {
+    text-decoration: none;
+    transition: 0.3s;
+  }
+    
+  .header {
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.8)
+      ),
+    url("images/template/header.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  body {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  nav {
+    background-color: var(--text-dark);
+    width: 100%;
+    z-index: 9;
+    transition: top 0.3s; /* Smooth hide/show effect */
+  }
+  
+  .nav__bar {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+  }
+  
+  .nav__header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--text-dark);
+  }
+  
+  .nav__logo img {
+    max-width: 90px;
+  }
+  
+  .nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+  
+  .nav__links {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--text-dark);
+    transition: 0.5s;
+    z-index: -1;
+    transform: translateY(-100%);
+  }
+  
+  .nav__links.open {
+    transform: translateY(0);
+    z-index: 999;
+  }
+  
+  .nav__links a {
+    font-size: 1.1rem;
+    font-family: var(--header-font);
+    white-space: nowrap;
+    color: var(--white);
+    transition: 0.3s;
+  }
+  
+  .nav__links a:hover {
+    color: var(--primary-color);
+  }
+  
+  
+  .header__container {
+    padding-block: 10rem;
+    display: grid;
+  }
+  
+  .header__content h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    font-family: var(--header-font);
+    line-height: 5rem;
+    color: var(--primary-color);
+  }
+  
+  .header__content h2 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+    font-family: var(--header-font);
+    line-height: 3rem;
+    color: var(--white);
+  }
+  
+  .header__content p {
+    margin-bottom: 2rem;
+    color: var(--extra-light);
+  }
+  

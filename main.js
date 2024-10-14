@@ -1,7 +1,25 @@
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
+const backToTopButton = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  // Show or hide the "Back to Top" button based on scroll position
+  if (scrollTop > 100) { // You can adjust the 100px threshold
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
+  }
+});
 
+// Function to scroll back to the top of the page
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 menuBtn.addEventListener("click", (e) => {
   navLinks.classList.toggle("open");
 

@@ -3,7 +3,7 @@ class Connect{
     static $host='localhost';
     static $user='root';
     static $pw='';
-    static $db='gym';
+    static $db='gym_database';
     public function selectdata($r){
         $cnx=new PDO("mysql:host=".self::$host.";dbname=".self::$db."",self::$user."",self::$pw);
         $e=$cnx->query($r);

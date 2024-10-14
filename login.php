@@ -6,7 +6,6 @@ if (isset($_POST['join2'])) {
     $c = new Contreleur();
     $cin = $_POST['cin'];
     $phone = $_POST['phone'];
-    
     $c->check($cin, $phone);
 }
 ?>
@@ -14,45 +13,26 @@ if (isset($_POST['join2'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styless.css" />
-
+<?php include 'includes/head.php'; ?>
+<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="templateStyle.css">
+        
 </head>
 <body>
-<nav>
-    <div class="nav__bar">
-        <div class="nav__header">
-            <div class="nav__logo">
-                <a href="index.html"><img src="images\logos/logo.png" alt="logo" /></a>
-            </div>
-            <div class="nav__menu__btn" id="menu-btn">
-                <i class="ri-menu-line"></i>
-            </div>
-        </div>
-        <ul class="nav__links" id="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#trainer">TRAINER</a></li>
-            <li><a href="#client">CLIENT</a></li>
-            <li><a href="#blog">BLOG</a></li>
-            <li><a href="#contact">CONTACT US</a></li>
-            <li><a href="signup.php" class="join">LOGIN</a></li>
-        </ul>
-    </div>
-</nav>
-
+<?php include 'includes/templateNavbar.php'; ?>
 <header class="header">
-    <div class="section__container" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 10vw;">
-        <div class="header__content" style="flex: 1; padding-right: 2rem;">
+    <div class="section__container">
+        <div class="row">
+            <div class="col-sm">
+            <div class="header__content">
             <h1>Login</h1>
             <h2>Welcome Back!</h2>
             <p>Please enter your details below to access your profile.</p>
-            <li><a href="signup.php" class="join">Don't have an account? Sign up here!</a></li>
+            <a href="signup.php" class="join">Don't have an account? Sign up here!</a>
         </div>
-        <div class="login__form" style="flex: 1;">
+            </div>
+            <div class="col-sm">
+            <div class="login__form">
             <form action="" method="post">
                 <label for="cin">CIN:</label>
                 <input type="text" id="cin" name="cin" required>
@@ -68,16 +48,16 @@ if (isset($_POST['join2'])) {
                 <input type="submit" class="join2" name="join2" value="Login">
             </form>
         </div>
+            </div>
+        </div>
+        
     </div>
 </header>
-
-<footer class="footer">
-    <div class="footer__container">
-        <div class="footer__bar">
-            <p>&copy; 2024 Your Gym. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
-
+<?php include 'includes/footer.php'; ?>
+<script src="https://unpkg.com/scrollreveal"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js">
+        
+      </script>
+    <script src="main.js"></script>
 </body>
 </html>
